@@ -10,6 +10,10 @@ The project uses `.gitignore` files to keep sensitive and unnecessary files out 
 
 This platform directly contributes to several United Nations Sustainable Development Goals (SDGs). It advances **SDG 13: Climate Action** by enabling communities to adapt and build resilience through indigenous knowledge and hotspot monitoring. It supports **SDG 11: Sustainable Cities and Communities** by helping reduce vulnerabilities and strengthen local resilience. It contributes to **SDG 15: Life on Land** by amplifying indigenous practices that protect ecosystems and biodiversity. It aligns with **SDG 17: Partnerships for the Goals** by fostering collaboration between communities, researchers, and policymakers. Finally, it promotes **SDG 4: Quality Education** by documenting and sharing indigenous knowledge, ensuring that traditional wisdom is valued and passed on.
 
+This plartform can also help in resource mobilization if the backend data is well analyzed and submitted to partners.
+
 Future enhancements include integration of GIS mapping for hotspot visualization, a community forum for indigenous knowledge sharing, analytics dashboards for climate risk trends, and role‑based access to differentiate between admins, researchers, and community members. The project is licensed under MIT, encouraging collaboration and open contribution. Developers and contributors can fork the repository, create feature branches, and submit pull requests to improve the platform.
 
 In summary, this platform is a practical tool for climate change risk reduction, combining modern web development with indigenous knowledge systems. It provides secure authentication, protected dashboards, and a clear deployment path to Render and Vercel, making it a scalable and impactful solution for communities and researchers working on climate resilience, while directly advancing global SDGs.
+Frontend on vercel: https://climate-change-n9t9.vercel.app/
+backend on render: https://climate-change-qvdp.onrender.com
