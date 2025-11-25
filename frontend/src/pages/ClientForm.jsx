@@ -48,13 +48,32 @@ const ClientForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // ✅ Ensure hotspots is an array
+    const payload = {
+      ...formData,
+      hotspots: formData.hotspots
+        ? formData.hotspots.split(",").map((h) => h.trim())
+        : [],
+    };
+
     try {
+      const token = localStorage.getItem("token"); // if auth required
       const response = await axios.post(
         "http://localhost:5000/api/submissions",
-        formData
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
+        }
       );
+
       console.log("✅ Server response:", response.data);
       alert("🌿 Submission successful! Thank you for contributing.");
+
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -71,8 +90,11 @@ const ClientForm = () => {
         longitude: "",
       });
     } catch (err) {
-      console.error("❌ Submission error:", err);
-      alert("Error submitting data. Please try again.");
+      console.error("❌ Submission error:", err.response?.data || err.message);
+      alert(
+        "Error submitting data: " +
+          (err.response?.data?.errors?.[0]?.msg || "Please try again.")
+      );
     }
   };
 
@@ -209,7 +231,7 @@ const ClientForm = () => {
           <textarea
             style={textareaStyle}
             name="hotspots"
-            placeholder="Mention any known hotspots or affected areas"
+            placeholder="Mention any known hotspots or affected areas (comma separated)"
             value={formData.hotspots}
             onChange={handleChange}
           />
